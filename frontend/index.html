@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mini Search Engine - Index files and search with boolean, phrase, fuzzy, and wildcard queries powered by Elasticsearch">
+    <title>Mini Search Engine</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🔍 Mini Search Engine</h1>
+            <p>Powered by Elasticsearch &amp; FastAPI</p>
+            <div id="healthStatus" style="margin-top:8px;font-size:0.85rem;color:var(--text-muted)"></div>
+        </header>
+
+        <!-- Tabs -->
+        <nav class="tabs" role="tablist">
+            <button class="tab-btn active" data-tab="index" id="tabBtnIndex" role="tab">📁 Index</button>
+            <button class="tab-btn" data-tab="search" id="tabBtnSearch" role="tab">🔎 Search</button>
+            <button class="tab-btn" data-tab="stats" id="tabBtnStats" role="tab">📊 Stats</button>
+        </nav>
+
+        <!-- ═══ INDEX TAB ═══ -->
+        <section class="tab-content active" id="tabIndex">
+            <div class="card">
+                <div class="card-title"><span class="icon">📂</span> Folder Path</div>
+                <input type="text" id="folderPath" placeholder="Enter the folder path to index, e.g. C:\Users\DELL\Desktop\IR\sample_data">
+            </div>
+            <div class="card">
+                <div class="card-title"><span class="icon">📄</span> Select File Formats</div>
+                <div class="formats-grid" id="formatsGrid"></div>
+                <p class="help-text">Choose which file formats to include in the index. Only selected formats will be parsed and indexed.</p>
+            </div>
+            <div style="text-align:center;margin:20px 0">
+                <button class="btn btn-primary" id="buildIndexBtn" onclick="buildIndex()">
+                    ⚡ Build Index
+                </button>
+            </div>
+            <div id="indexResult"></div>
+        </section>
+
+        <!-- ═══ SEARCH TAB ═══ -->
+        <section class="tab-content" id="tabSearch">
+            <div class="card">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="searchQuery" placeholder='Search... e.g. "machine learning" AND python~2' onkeydown="if(event.key==='Enter')doSearch()">
+                </div>
+                <p class="help-text">
+                    Supports: <strong>AND OR NOT ()</strong> boolean &nbsp;|&nbsp; <strong>"phrase"</strong> exact match &nbsp;|&nbsp; <strong>word~</strong> fuzzy &nbsp;|&nbsp; <strong>wild*</strong> wildcard
+                </p>
+
+                <div class="filters-row" style="margin-top:16px">
+                    <div class="filter-group">
+                        <label for="dateFrom">Date From</label>
+                        <input type="date" id="dateFrom">
+                    </div>
+                    <div class="filter-group">
+                        <label for="dateTo">Date To</label>
+                        <input type="date" id="dateTo">
+                    </div>
+                    <div class="filter-group">
+                        <label for="fileTypeFilter">File Type</label>
+                        <select id="fileTypeFilter">
+                            <option value="">All Types</option>
+                            <option value="txt">TXT</option>
+                            <option value="pdf">PDF</option>
+                            <option value="json">JSON</option>
+                            <option value="csv">CSV</option>
+                            <option value="xlsx">Excel</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary" onclick="doSearch()" id="searchBtn">🔎 Search</button>
+                </div>
+            </div>
+
+            <div id="didYouMean"></div>
+            <div id="resultsHeader"></div>
+            <div id="resultsContainer"></div>
+            <div id="pagination"></div>
+        </section>
+
+        <!-- ═══ STATS TAB ═══ -->
+        <section class="tab-content" id="tabStats">
+            <div id="statsContainer">
+                <div class="empty-state">
+                    <div class="icon">📊</div>
+                    <p>Click the button below to load index statistics.</p>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:16px">
+                <button class="btn btn-primary" onclick="loadStats()" id="loadStatsBtn">📊 Load Stats</button>
+            </div>
+        </section>
+    </div>
+    <script src="/static/app.js"></script>
+</body>
+</html>

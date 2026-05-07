@@ -1,0 +1,23 @@
+Information Retrieval: An Introduction
+
+Information retrieval (IR) is the science of searching for information in documents, 
+searching for documents themselves, and searching for metadata that describes data, 
+and for databases of texts, images, or sounds.
+
+Automated information retrieval systems are used to reduce what has been called 
+"information overload". Many universities and public libraries use IR systems to 
+provide access to books, journals, and other documents. Web search engines are the 
+most visible IR applications.
+
+Key concepts in information retrieval include:
+- Indexing: Creating a structured representation of documents
+- Query Processing: Parsing and understanding user search queries
+- Ranking: Ordering results by relevance to the query
+- Boolean Retrieval: Using AND, OR, NOT operators
+- Vector Space Model: Representing documents and queries as vectors
+- TF-IDF: Term frequency-inverse document frequency weighting
+- Precision and Recall: Measuring search effectiveness
+
+The field has evolved significantly with the advent of machine learning and 
+natural language processing techniques, enabling more sophisticated understanding 
+of both documents and user intent.

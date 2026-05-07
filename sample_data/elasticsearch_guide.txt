@@ -1,0 +1,25 @@
+Elasticsearch Guide
+
+Elasticsearch is a distributed, RESTful search and analytics engine capable of 
+addressing a growing number of use cases. As the heart of the Elastic Stack, 
+it centrally stores your data for lightning fast search, fine-tuned relevancy, 
+and powerful analytics that scale with ease.
+
+Key Features of Elasticsearch:
+1. Full-Text Search - Powerful full-text search capabilities using inverted indices
+2. Real-Time Analytics - Perform complex aggregations on your data in real-time
+3. Scalability - Horizontally scalable, handling petabytes of structured data
+4. Near Real-Time - Documents are searchable within approximately one second
+5. RESTful API - Simple REST API for all operations
+6. Schema-Free - JSON documents, no need to define schema upfront
+
+Common Use Cases:
+- Application search (e-commerce product search, site search)
+- Security analytics and threat detection
+- Logging and log analytics
+- Infrastructure monitoring
+- Business analytics
+
+Elasticsearch uses an inverted index data structure, which is designed to allow 
+very fast full-text searches. An inverted index lists every unique word that 
+appears in any document and identifies all of the documents each word occurs in.

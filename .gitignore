@@ -1,0 +1,18 @@
+# Elasticsearch binary
+elasticsearch-9.4.0/
+elasticsearch-*.zip
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+.DS_Store

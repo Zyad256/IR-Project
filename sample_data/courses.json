@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "Introduction to Machine Learning",
+    "description": "Machine learning is a subset of artificial intelligence that provides systems the ability to automatically learn and improve from experience.",
+    "category": "AI",
+    "difficulty": "Beginner",
+    "price": 29.99
+  },
+  {
+    "id": 2,
+    "title": "Deep Learning Fundamentals",
+    "description": "Deep learning uses neural networks with many layers to model complex patterns in data. Applications include image recognition and natural language processing.",
+    "category": "AI",
+    "difficulty": "Intermediate",
+    "price": 49.99
+  },
+  {
+    "id": 3,
+    "title": "Natural Language Processing with Python",
+    "description": "NLP enables computers to understand, interpret, and generate human language. This course covers tokenization, sentiment analysis, and text classification.",
+    "category": "NLP",
+    "difficulty": "Intermediate",
+    "price": 39.99
+  },
+  {
+    "id": 4,
+    "title": "Data Structures and Algorithms",
+    "description": "Essential computer science concepts including arrays, linked lists, trees, graphs, sorting algorithms, and search algorithms.",
+    "category": "Computer Science",
+    "difficulty": "Beginner",
+    "price": 24.99
+  },
+  {
+    "id": 5,
+    "title": "Web Development with FastAPI",
+    "description": "Build modern, fast web APIs using Python and FastAPI framework. Covers routing, authentication, database integration, and deployment.",
+    "category": "Web Development",
+    "difficulty": "Intermediate",
+    "price": 34.99
+  },
+  {
+    "id": 6,
+    "title": "Advanced Search Engine Architecture",
+    "description": "Learn how search engines work internally. Covers indexing, inverted indices, ranking algorithms like BM25 and TF-IDF, and query optimization.",
+    "category": "Information Retrieval",
+    "difficulty": "Advanced",
+    "price": 59.99
+  }
+]
