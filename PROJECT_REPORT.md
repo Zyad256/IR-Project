@@ -22,7 +22,7 @@
 
 This project is a **Mini Search Engine** that indexes a folder of files in multiple formats and allows users to search through them using advanced query types. The system is built as a full-stack web application with three layers:
 
-- **Elasticsearch 9.4.0** — The core search and storage engine
+- **Elasticsearch 8.15.1** — The core search and storage engine
 - **FastAPI (Python)** — REST API backend that bridges the frontend and Elasticsearch
 - **HTML/CSS/JavaScript** — A premium web-based graphical user interface
 
@@ -34,7 +34,7 @@ The search engine supports **5 file formats** (TXT, PDF, JSON, CSV, Excel), prov
 
 | Component | Technology | Version | Purpose |
 |-----------|-----------|---------|---------|
-| Search Engine | Elasticsearch | 9.4.0 | Document storage, indexing, and full-text search |
+| Search Engine | Elasticsearch | 8.15.1 | Document storage, indexing, and full-text search |
 | Backend API | FastAPI | 0.115.0 | REST API server connecting frontend to Elasticsearch |
 | Web Server | Uvicorn | 0.30.6 | ASGI server to run FastAPI |
 | PDF Parsing | PyPDF2 | 3.0.1 | Extract text from PDF files |
@@ -72,30 +72,30 @@ FastAPI was chosen because:
 │  │  • Search Tab — query, filters, results            │  │
 │  │  • Stats Tab — document & term statistics          │  │
 │  └──────────────────┬─────────────────────────────────┘  │
-│                     │  HTTP Requests (JSON)               │
+│                     │  HTTP Requests (JSON)              │
 └─────────────────────┼────────────────────────────────────┘
                       │
                       ▼
 ┌──────────────────────────────────────────────────────────┐
 │               FastAPI Backend (Python)                   │
-│                  http://localhost:8000                    │
+│                  http://localhost:8000                   │
 │                                                          │
-│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌─────────┐  │
-│  │ /api/    │  │ /api/    │  │ /api/    │  │ /api/   │  │
-│  │ index    │  │ search   │  │ stats    │  │ health  │  │
-│  └────┬─────┘  └────┬─────┘  └────┬─────┘  └────┬────┘  │
-│       │              │             │              │       │
-│  ┌────▼─────┐  ┌────▼─────┐  ┌────▼─────┐       │       │
-│  │ indexer  │  │ searcher │  │ searcher │       │       │
-│  │   .py    │  │   .py    │  │   .py    │       │       │
-│  └────┬─────┘  └────┬─────┘  └────┬─────┘       │       │
-│       │              │             │              │       │
-└───────┼──────────────┼─────────────┼──────────────┼──────┘
-        │              │             │              │
-        ▼              ▼             ▼              ▼
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌─────────┐   │
+│  │ /api/    │  │ /api/    │  │ /api/    │  │ /api/   │   │
+│  │ index    │  │ search   │  │ stats    │  │ health  │   │
+│  └────┬─────┘  └────┬─────┘  └────┬─────┘  └────┬────┘   │
+│       │             │             │             │        │
+│  ┌────▼─────┐  ┌────▼─────┐  ┌────▼─────┐       │        │
+│  │ indexer  │  │ searcher │  │ searcher │       │        │
+│  │   .py    │  │   .py    │  │   .py    │       │        │
+│  └────┬─────┘  └────┬─────┘  └────┬─────┘       │        │
+│       │             │             │             │        │
+└───────┼─────────────┼─────────────┼─────────────┼────────┘
+        │             │             │             │
+        ▼             ▼             ▼             ▼
 ┌──────────────────────────────────────────────────────────┐
-│              Elasticsearch 9.4.0                         │
-│              http://localhost:9200                        │
+│              Elasticsearch 8.15.1                        │
+│              http://localhost:9200                       │
 │                                                          │
 │  Index: "search_engine_docs"                             │
 │  ┌────────────────────────────────────────────────────┐  │
@@ -144,8 +144,8 @@ IR-Project/
 │   ├── products.csv
 │   └── employees.xlsx
 │
-├── elasticsearch-9.4.0/        # Elasticsearch installation (not in Git)
-├── create_sample_excel.py      # Helper script to generate Excel test data
+├── elasticsearch-8.15.1/        # Elasticsearch installation (not in Git)
+├── kibana-8.15.1/              # Kibana installation (not in Git)
 ├── .gitignore                  # Excludes ES binary and cache files
 ├── README.md                   # Quick-start guide
 └── PROJECT_REPORT.md           # This report
@@ -436,7 +436,7 @@ The frontend is a single-page application with **three tabs**:
 
 ### Prerequisites
 - **Python 3.9+** installed
-- **Elasticsearch 9.4.0** (included in the project folder)
+- **Elasticsearch 8.15.1** (download separately, extract to project root)
 - **Java 17+** (required by Elasticsearch — bundled JDK is included)
 
 ### Step 1: Install Python Dependencies
@@ -446,7 +446,7 @@ pip install -r requirements.txt
 ```
 
 ### Step 2: Configure Elasticsearch
-The `elasticsearch-9.4.0/config/elasticsearch.yml` is pre-configured with:
+The `elasticsearch-8.15.1/config/elasticsearch.yml` is pre-configured with:
 ```yaml
 # Security disabled for local development
 xpack.security.enabled: false
@@ -462,7 +462,7 @@ cluster.routing.allocation.disk.watermark.flood_stage: 99%
 
 ### Step 3: Start Elasticsearch
 ```bash
-elasticsearch-9.4.0\bin\elasticsearch.bat
+elasticsearch-8.15.1\bin\elasticsearch.bat
 ```
 Wait ~30 seconds until you see `"status":"green"` in the logs.
 

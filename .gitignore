@@ -1,6 +1,6 @@
-# Elasticsearch binary
-elasticsearch-9.4.0/
-elasticsearch-*.zip
+# Elasticsearch & Kibana binaries (download separately)
+elasticsearch-*/
+kibana-*/
 
 # Python
 __pycache__/
@@ -16,3 +16,7 @@ venv/
 # OS
 Thumbs.db
 .DS_Store
+
+# Archives
+*.zip
+*.tar.gz

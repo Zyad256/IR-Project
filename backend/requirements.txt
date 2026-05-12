@@ -1,6 +1,6 @@
 fastapi==0.115.0
 uvicorn==0.30.6
-elasticsearch>=8.15.0
+elasticsearch>=8.15.0,<9.0.0
 python-multipart==0.0.9
 PyPDF2==3.0.1
 openpyxl==3.1.5
